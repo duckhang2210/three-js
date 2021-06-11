@@ -4,6 +4,8 @@ import { useRef, Suspense } from "react";
 import * as THREE from 'three';
 
 import Hiphop from "./Hiphop"
+import Flair from "./Newflair"
+import Shuffling from "./Shuffling"
 
 interface IProps {
   position: [x: number, y: number, z: number]
@@ -51,10 +53,13 @@ export function LandingPage() {
           </mesh>
         </group>
 
-        <Box position={[0,1,-2]} color="lightpink" />
-        <Box position={[5,1,0]} color="gold"/>
+        <Box position={[7,1,-2]} color="lightpink" />
+        
         <Suspense fallback={null}>
           <Hiphop position={[-3,0,1]} />
+          <Flair position={[5,0,1]} />
+          <Shuffling position={[1,0,1]} />
+
         </Suspense>
         
         <OrbitControls />
