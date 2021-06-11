@@ -1,7 +1,9 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, Suspense } from "react";
 import * as THREE from 'three';
+
+import Hiphop from "./Hiphop"
 
 interface IProps {
   position: [x: number, y: number, z: number]
@@ -49,9 +51,12 @@ export function LandingPage() {
           </mesh>
         </group>
 
-        <Box position={[-3,1,1]} color="teal"/>
-        <Box position={[0,1,0]} color="lightpink" />
-        <Box position={[5,1,-3]} color="gold"/>
+        <Box position={[0,1,-2]} color="lightpink" />
+        <Box position={[5,1,0]} color="gold"/>
+        <Suspense fallback={null}>
+          <Hiphop position={[-3,0,1]} />
+        </Suspense>
+        
         <OrbitControls />
       </Canvas>
     </>
